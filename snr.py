@@ -8,6 +8,7 @@ import numpy as np
 
 def snr(W):
     """Calculate snr of sorted units based on Xiaoxuan's matlab code. 
+    Signal to noise ratio for waveform shape.
     W: (waveforms from all spike times), first dim is rep
     ref: (Nordhausen et al., 1996; Suner et al., 2005)
     """
@@ -15,4 +16,5 @@ def snr(W):
     A = max(W_bar) - min(W_bar)
     e = W - np.tile(W_bar,(np.shape(W)[0],1))
     snr = A/(2*np.nanstd(e.flatten()))
+    
     return snr      

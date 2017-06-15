@@ -16,5 +16,8 @@ def snr(W):
     A = max(W_bar) - min(W_bar)
     e = W - np.tile(W_bar,(np.shape(W)[0],1))
     snr = A/(2*np.nanstd(e.flatten()))
+
+    if len(snr)>1:
+        np.std(snr)
     
     return snr      
